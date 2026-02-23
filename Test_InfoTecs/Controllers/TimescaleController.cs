@@ -32,36 +32,6 @@ namespace Test_InfoTecs.Controllers
             }
         }
 
-        [HttpGet("results/{fileName}")]
-        public async Task<IActionResult> GetResults(string fileName)
-        {
-            if (string.IsNullOrWhiteSpace(fileName))
-                return BadRequest("Имя файла не указано.");
-
-            var result = await _service.GetResultAsync(fileName);
-
-            if (result == null)
-                return NotFound("Результаты для данного файла не найдены.");
-
-            return Ok(result);
-        }
-
-
-        [HttpGet("values/{fileName}")]
-        public async Task<IActionResult> GetValues(string fileName)
-        {
-            if (string.IsNullOrWhiteSpace(fileName))
-                return BadRequest("Имя файла не указано.");
-
-            var values = await _service.GetValuesAsync(fileName);
-
-            if (!values.Any())
-                return NotFound("Значения для данного файла не найдены.");
-
-            return Ok(values);
-        }
-
-
         [HttpGet("results")]
         public async Task<IActionResult> GetFilteredResults([FromQuery] ResultsFilter filter)
         {
