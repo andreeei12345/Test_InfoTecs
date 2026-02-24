@@ -1,0 +1,21 @@
+CREATE TABLE "Results" (
+	"Id" serial4 NOT NULL,
+	"FileName" text NOT NULL,
+	"DeltaSeconds" float8 NOT NULL,
+	"StartDate" timestamp NOT NULL,
+	"AvgExecutionTime" float8 NOT NULL,
+	"AvgValue" float8 NOT NULL,
+	"MedianValue" float8 NOT NULL,
+	"MaxValue" float8 NOT NULL,
+	"MinValue" float8 NOT NULL,
+	CONSTRAINT "Results_pkey" PRIMARY KEY ("Id")
+);
+
+CREATE TABLE "Values" (
+	"Id" serial4 NOT NULL,
+	"Date" timestamp NOT NULL,
+	"ExecutionTime" float8 NOT NULL,
+	"Value" float8 NOT NULL,
+	"FileName" text NOT NULL,
+	CONSTRAINT "Values_pkey" PRIMARY KEY ("Id")
+);
